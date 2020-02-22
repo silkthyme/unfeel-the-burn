@@ -2,6 +2,7 @@
 #### Heal the Burn?
 
 ### How We Classified Burn Images
+
     | Type of Burn | Blistering | Appearance | Pinprick test |
     |-----|-----|------|---|
     | Superficial dermal | Present | Bright red | Sensitive to pain |
