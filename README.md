@@ -26,4 +26,7 @@
 * require skin grafts
 * blistering absent, gray/white appearance, no sensation
 
-###### Source: http://airccse.org/journal/jcsit/5113ijcsit09.pdf
+###### Sources
+    * http://airccse.org/journal/jcsit/5113ijcsit09.pdf
+    * https://github.com/produvia/deep-learning-for-wound-care
+    * https://www.verywellhealth.com/burn-pictures-4020409
