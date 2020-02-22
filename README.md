@@ -1,14 +1,13 @@
 # Burn Detection and Classification
 #### Heal the Burn?
 
-### How We Classified Burn Images
+How We Classified Burn Images
 
-    | Type of Burn | Blistering | Appearance | Pinprick test |
-    |-----|-----|------|---|
-    | Superficial dermal | Present | Bright red | Sensitive to pain |
-    | Partial thickness | Blisters are broken | Cream colored | Dullness to pain |
-    | Full thickness | Absent | Gray/white | No sensation | 
-
+| Type of Burn | Blistering | Appearance | Pinprick test |
+|-----|-----|------|---|
+| Superficial dermal | Present | Bright red | Sensitive to pain |
+| Partial thickness | Blisters are broken | Cream colored | Dullness to pain |
+| Full thickness | Absent | Gray/white | No sensation |
 
 ### A. Superficial Burn
 * injury to the epidermal layer of the skin
