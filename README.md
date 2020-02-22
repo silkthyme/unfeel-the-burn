@@ -1,7 +1,6 @@
 # Burn Detection and Classification
-#### Heal the Burn?
-
-How We Classified Burn Images
+* Heal the Burn?
+* How We Classified Burn Images
 
 | Type of Burn | Blistering | Appearance | Pinprick test |
 |-----|-----|------|---|
@@ -21,7 +20,7 @@ How We Classified Burn Images
 * usually leave scars
 * blisters are broken, cream colored, dullness to pain
 
-#### C. Full Thickness Burn
+### C. Full Thickness Burn
 * destroys epidermis, dermis, and subcataneous layers of skin
 * no sensation
 * require skin grafts
