@@ -1493,7 +1493,7 @@ input[type="text"] {
   width: 200px;
   position: relative;
   padding: 15px;
-  color: #1ECD97;
+  color: #a7f062;
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
@@ -1502,7 +1502,7 @@ input[type="text"] {
   border-radius: 4px;
   font-weight: 600;
   overflow: hidden;
-  border: 2px solid #1ECD97;
+  border: 2px solid #a7f062;
   text-decoration: none;
 }
 
@@ -1514,7 +1514,7 @@ input[type="text"] {
 
 .btn-fill:after {
   content: '';
-  background: #1ECD97;
+  background: #a7f062;
   position: absolute;
   top: 0; left: 0;
   height: 100%;
@@ -1543,7 +1543,7 @@ input[type="text"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1ECD97;
+  background: #a7f062;
 }
 
 /* Animation */
