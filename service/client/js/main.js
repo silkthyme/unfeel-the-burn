@@ -287,11 +287,11 @@ $(function () {
                     console.log('entered');
                     document.getElementById('download').textContent = response;
                     if (response == 'full_thickness') {
-                        document.getElementById('download').href = "about.html#first"
+                        document.getElementById('download').href = "about.html#third"
                     } else if (response == 'partial_thickness') {
                         document.getElementById('download').href = "about.html#second"
                     } else {
-                        document.getElementById('download').href = "about.html#third"
+                        document.getElementById('download').href = "about.html#first"
                     }
 
                 }
