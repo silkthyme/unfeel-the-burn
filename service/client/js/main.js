@@ -283,15 +283,17 @@ $(function () {
                 contentType: "application/json",
                 data: JSON.stringify({'image': reader.result.split(',')[1]}),
                 success: function(response){
-					document.getElementById('burntype').textContent = 'Click here for ' + response;
                     if (response === 'full_thickness') {
-                        console.log('entered');
+						console.log('entered');
+						document.getElementById('burntype').textContent = 'You have a third degree burn. Click here for your diagnosis.';
                         document.getElementById('burntype').setAttribute('href', "about.html#third");
                     } else if (response == 'partial_thickness') {
+						document.getElementById('burntype').textContent = 'You have a second degree burn. Click here for your diagnosis.';
                         document.getElementById('burntype').setAttribute('href', "about.html#second");
                     } else {
+						document.getElementById('burntype').textContent = 'You have a first degree burn. Click here for your diagnosis.';
                         document.getElementById('burntype').setAttribute('href', "about.html#first");
-                    }
+					}
                 }
               });
          });
@@ -320,9 +322,7 @@ $(function () {
 		  setTimeout(function() {
 			  x.setAttribute('style', 'display: block');                
 		  }, 5600);
-		  if (document.getElementById('burntype').textContent !== 'full_thickness' ||
-		  document.getElementById('burntype').textContent !== 'partial_thickness' ||
-		  document.getElementById('burntype').textContent !== 'superficial_derma') {
+		  if (document.getElementById('burntype').textContent === '') {
 			document.getElementById('burntype').textContent = 'Click here for treatments';
 		  }
 		  
