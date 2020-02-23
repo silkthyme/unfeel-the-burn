@@ -8,7 +8,7 @@ import pickle
 from skimage.io import imread
 from skimage.transform import resize
 from PIL import Image
-import cv2
+# import cv2
 
 app = Flask(__name__)
 
