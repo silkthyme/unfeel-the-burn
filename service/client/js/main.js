@@ -273,6 +273,7 @@ $(function () {
 	});
 
 	$('#imagesource').change(function(){
+		document.getElementById('typeofburn').setAttribute('href', "about.html#first");
 	     const file = document.getElementById('imagesource').files[0];
 	     var reader = new FileReader();
          reader.readAsDataURL(file);
@@ -283,14 +284,14 @@ $(function () {
                 contentType: "application/json",
                 data: JSON.stringify({'image': reader.result.split(',')[1]}),
                 success: function(response){
-					document.getElementById('download').textContent = response;
-                    if (response == 'full_thickness') {
+					document.getElementById('burntype').textContent = response;
+                    if (response === 'full_thickness') {
                         console.log('entered');
-                        document.getElementById('download').setAttribute('href', "about.html#third");
-                    } else if (response == 'partial_thickness') {
-                        document.getElementById('download').setAttribute('href', "about.html#second");
+						document.getElementById('burntype').setAttribute('href', "about.html#third");
+                    } else if (response === 'partial_thickness') {
+                        document.getElementById('burntype').setAttribute('href', "about.html#second");
                     } else {
-                        document.getElementById('download').setAttribute('href', "about.html#first");
+                        document.getElementById('burntype').setAttribute('href', "about.html#first");
                     }
                 }
               });
