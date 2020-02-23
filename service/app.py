@@ -4,13 +4,13 @@ from flask import Flask, make_response, request, send_from_directory
 import io
 import numpy as np
 import os
-from skimage.transform import resize
-from skimage.io import imread
 import pickle
-
-static_path = os.path.join('client')
+from skimage.io import imread
+from skimage.transform import resize
 
 app = Flask(__name__)
+
+static_path = os.path.join('client')
 
 
 @app.route('/', methods=['GET'], defaults={'path': 'index.html'})  # redirect initial homepage requests to static files controller
@@ -58,9 +58,15 @@ def transform2():
 
     return classify(flattened_img_np_arr.reshape(1, -1))
 
+
 def classify(table) :
     f = open('model2.py', 'rb')
     classifier = pickle.load(f)
     prediction = classifier.predict(table)
     print(prediction[0])
     return prediction[0]
+
+
+if __name__ == '__main__':
+    port = int(os.getenv('PORT', 8000))
+    app.run(host='0.0.0.0', port=port, debug=True)
