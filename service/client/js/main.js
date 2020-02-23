@@ -273,7 +273,6 @@ $(function () {
 	});
 
 	$('#imagesource').change(function(){
-		document.getElementById('typeofburn').setAttribute('href', "about.html#first");
 	     const file = document.getElementById('imagesource').files[0];
 	     var reader = new FileReader();
          reader.readAsDataURL(file);
@@ -287,8 +286,9 @@ $(function () {
 					document.getElementById('burntype').textContent = response;
                     if (response === 'full_thickness') {
                         console.log('entered');
-						document.getElementById('burntype').setAttribute('href', "about.html#third");
-                    } else if (response === 'partial_thickness') {
+                        document.getElementById('burntype').setAttribute('href', "about.html#third");
+                        location.
+                    } else if (response == 'partial_thickness') {
                         document.getElementById('burntype').setAttribute('href', "about.html#second");
                     } else {
                         document.getElementById('burntype').setAttribute('href', "about.html#first");
@@ -322,6 +322,8 @@ $(function () {
 			  x.setAttribute('style', 'display: block');                
 		  }, 5600);
 		});
-	  })
+	  });
+
+
 
 }());
