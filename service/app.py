@@ -26,14 +26,18 @@ def static_file(path):
 @app.route('/images/transform', methods=['POST'])
 def transform():
     # imgdata = base64.b64decode()
-    img = imread(request.files['image'])
-    smart_img = resize(img, (100, 100, 3), preserve_range=True)
-    smart_img_np_arr = np.array(smart_img).astype(int)
-    flattened_img_np_arr = smart_img_np_arr.flatten()
-    img_arr = flattened_img_np_arr.tolist()
     si = io.StringIO()
-    csv_writer = csv.writer(si)
-    csv_writer.writerow(img_arr)
+    csv_writer = csv.writer(si, delimiter=',')
+
+    imgs = request.files.getlist("images")
+    for img in imgs:
+        parsed_img = imread(img)
+        smart_img = resize(parsed_img, (100, 100, 3), preserve_range=True)
+        smart_img_np_arr = np.array(smart_img).astype(int)
+        flattened_img_np_arr = smart_img_np_arr.flatten()
+        img_arr = flattened_img_np_arr.tolist()
+        csv_writer.writerow(img_arr)
+
     output = make_response(si.getvalue())
     output.headers["Content-Disposition"] = "attachment; filename=image.csv"
     output.headers["Content-type"] = "text/csv"
