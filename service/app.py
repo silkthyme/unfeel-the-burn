@@ -7,9 +7,6 @@ import os
 from skimage.transform import resize
 from skimage.io import imread
 import pickle
-import pandas as pd
-from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import accuracy_score
 
 static_path = os.path.join('client')
 
@@ -47,6 +44,7 @@ def transform():
     output.headers["Content-type"] = "text/csv"
 
     return output
+
 
 @app.route('/images/classify', methods=['POST'])
 def transform2():
