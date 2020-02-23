@@ -273,7 +273,6 @@ $(function () {
 	});
 
 	$('#imagesource').change(function(){
-		document.getElementById('typeofburn').setAttribute('href', "about.html#first");
 	     const file = document.getElementById('imagesource').files[0];
 	     var reader = new FileReader();
          reader.readAsDataURL(file);
@@ -287,11 +286,9 @@ $(function () {
 					document.getElementById('burntype').textContent = response;
                     if (response === 'full_thickness') {
                         console.log('entered');
-                        document.getElementById('download').setAttribute('href', "about.html#third");
+                        document.getElementById('burntype').setAttribute('href', "about.html#third");
+                        location.
                     } else if (response == 'partial_thickness') {
-                        document.getElementById('download').setAttribute('href', "about.html#second");
-						document.getElementById('burntype').setAttribute('href', "about.html#third");
-                    } else if (response === 'partial_thickness') {
                         document.getElementById('burntype').setAttribute('href', "about.html#second");
                     } else {
                         document.getElementById('burntype').setAttribute('href', "about.html#first");
@@ -327,23 +324,6 @@ $(function () {
 		});
 	  });
 
-
-    $(function initMap() {
-      if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition(function (position) {
-             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-         });
-     }
-      var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 4, center: initialLocation});
-      $.ajax({
-        type: 'GET',
-        url: 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=AIzaSyDUvF_j2zJ-9cFY9XxdVDctZYiefZiIMtc&input=Hospital&inputttype=hospital'
-        success: function(response){
-            console.log(response);
-        }
-      });
-    });
 
 
 }());
