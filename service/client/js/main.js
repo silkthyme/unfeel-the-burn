@@ -299,6 +299,25 @@ $(function () {
          });
 	});
 
-
+	$(function() {
+		var btn = $(".btn");
+		
+		btn.on("click", function() {
+		  
+		  $(this).addClass('btn-progress');
+		  setTimeout(function() {
+			btn.addClass('btn-fill')
+		  }, 1300);
+		  
+		  setTimeout(function() {
+			btn.removeClass('btn-fill')
+		  }, 5600);
+		  
+		  setTimeout(function() {
+			btn.addClass('btn-complete')
+		  }, 5600);
+		
+		});
+	  })
 
 }());
