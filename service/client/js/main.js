@@ -279,15 +279,13 @@ $(function () {
          reader.readAsDataURL(file);
          reader.addEventListener('load', function(){
                 $.ajax({
-                url: '/images/transform',
+                url: '/images/classify',
                 type: 'post',
                 contentType: "application/json",
                 data: JSON.stringify({'image': reader.result.split(',')[1]}),
                 success: function(response){
                     console.log('entered');
-                    var url = window.URL.createObjectURL(new Blob([response], {type: 'text/csv'}));
-                    console.log(url);
-                    document.getElementById('download').href = url;
+                    document.getElementById('download').textContent = response;
                 }
               });
          });
