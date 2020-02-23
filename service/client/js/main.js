@@ -284,8 +284,16 @@ $(function () {
                 contentType: "application/json",
                 data: JSON.stringify({'image': reader.result.split(',')[1]}),
                 success: function(response){
-                    console.log('entered');
                     document.getElementById('download').textContent = response;
+                    if (response == 'full_thickness') {
+                        console.log('entered');
+                        document.getElementById('download').setAttribute('href', "about.html#third");
+                    } else if (response == 'partial_thickness') {
+                        document.getElementById('download').setAttribute('href', "about.html#second");
+                    } else {
+                        document.getElementById('download').setAttribute('href', "about.html#first");
+                    }
+
                 }
               });
          });
