@@ -33,7 +33,7 @@ def transform():
 
     imgs = request.files.getlist("images")
     for img in imgs:
-        parsed_img = cv2.medianBlur(imread(img))
+        parsed_img = imread(img)
         mask = np.zeros(img.shape[:2], np.uint8)
         bgdModel = np.zeros((1, 65), np.float64)
         fgdModel = np.zeros((1, 65), np.float64)
@@ -59,7 +59,7 @@ def transform2():
     imgdata = base64.b64decode(request.json['image'])
     with open('preimage.jpg', 'wb') as f:
         f.write(imgdata)
-    img = cv2.medianBlur(imread('preimage.jpg'))
+    img = imread('preimage.jpg')
     smart_img = resize(img, (100, 100, 3), preserve_range=True)
     smart_img_np_arr = np.array(smart_img).astype(int)
     flattened_img_np_arr = smart_img_np_arr.flatten()
