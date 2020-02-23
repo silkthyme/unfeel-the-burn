@@ -7,6 +7,7 @@ import os
 import pickle
 from skimage.io import imread
 from skimage.transform import resize
+import cv2
 
 app = Flask(__name__)
 
@@ -33,7 +34,14 @@ def transform():
     imgs = request.files.getlist("images")
     for img in imgs:
         parsed_img = imread(img)
+        mask = np.zeros(img.shape[:2], np.uint8)
+        bgdModel = np.zeros((1, 65), np.float64)
+        fgdModel = np.zeros((1, 65), np.float64)
+        rect = (0, 0, 100, 100)
         smart_img = resize(parsed_img, (100, 100, 3), preserve_range=True)
+        cv2.grabCut(smart_img, mask, rect, bgdModel, fgdModel, 5, cv2.GC_INIT_WITH_RECT)
+        mask2 = np.where((mask == 2) | (mask == 0), 0, 1).astype('uint8')
+        smart_img = smart_img * mask2[:, :, np.newaxis]
         smart_img_np_arr = np.array(smart_img).astype(int)
         flattened_img_np_arr = smart_img_np_arr.flatten()
         img_arr = flattened_img_np_arr.tolist()
@@ -63,7 +71,6 @@ def classify(table) :
     f = open('model2.py', 'rb')
     classifier = pickle.load(f)
     prediction = classifier.predict(table)
-    print(prediction[0])
     return prediction[0]
 
 
