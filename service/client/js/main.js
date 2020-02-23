@@ -283,7 +283,7 @@ $(function () {
                 contentType: "application/json",
                 data: JSON.stringify({'image': reader.result.split(',')[1]}),
                 success: function(response){
-					document.getElementById('burntype').textContent = response;
+					document.getElementById('burntype').textContent = 'Click here for ' + response;
                     if (response === 'full_thickness') {
                         console.log('entered');
                         document.getElementById('burntype').setAttribute('href', "about.html#third");
@@ -320,6 +320,12 @@ $(function () {
 		  setTimeout(function() {
 			  x.setAttribute('style', 'display: block');                
 		  }, 5600);
+		  if (document.getElementById('burntype').textContent !== 'full_thickness' ||
+		  document.getElementById('burntype').textContent !== 'partial_thickness' ||
+		  document.getElementById('burntype').textContent !== 'superficial_derma') {
+			document.getElementById('burntype').textContent = 'Click here for treatments';
+		  }
+		  
 		});
 	  });
 
