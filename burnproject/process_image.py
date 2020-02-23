@@ -11,7 +11,7 @@ def resize(image):
 
 
 def main():
-    img = cv2.imread('seamcarving.jpeg')
+    img = cv2.imread('burn.jpg')
     plt.figure()
     plt.title('experimenting with seam carving')
     plt.imshow(resize(img))
