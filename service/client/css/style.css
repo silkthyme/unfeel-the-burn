@@ -1340,9 +1340,9 @@ input[type="text"] {
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   border-radius: 30px;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
   padding: 8px 20px; }
   .btn.btn-md {
     padding: 8px 20px !important; }
@@ -1351,7 +1351,11 @@ input[type="text"] {
   .btn:hover, .btn:active, .btn:focus {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    outline: none !important; }
+     }
+   .btn:hover {
+    outline: none !important;
+    background: #a7f062;
+   }
 
 .btn-primary {
   background: #4aca85;

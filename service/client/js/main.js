@@ -273,6 +273,28 @@ $(function () {
 	});
 
 	$('#imagesource').change(function(){
+        $(function() {
+
+            var btn = $(".btn");
+            var x = document.getElementById("typeofburn");
+            x.setAttribute('style', 'display: none');
+
+              $(this).addClass('btn-progress');
+              setTimeout(function() {
+                btn.addClass('btn-fill')
+              }, 300);
+
+              setTimeout(function() {
+                if (document.getElementById('burntype').textContent === '') {
+                  document.getElementById('burntype').textContent = 'Click here for treatments';
+                }
+                btn.removeClass('btn-fill')
+                btn.addClass('btn-complete')
+                  x.setAttribute('style', 'display: block');
+              }, 3700);
+
+          });
+
 	     const file = document.getElementById('imagesource').files[0];
 	     var reader = new FileReader();
          reader.readAsDataURL(file);
@@ -298,37 +320,5 @@ $(function () {
               });
          });
 	});
-
-	$(function() {
-
-		var btn = $(".btn");
-			var x = document.getElementById("typeofburn");
-	x.setAttribute('style', 'display: none');        
-
-		btn.on("click", function() {
-		  
-		  $(this).addClass('btn-progress');
-		  setTimeout(function() {
-			btn.addClass('btn-fill')
-		  }, 1300);
-		  
-		  setTimeout(function() {
-			btn.removeClass('btn-fill')
-		  }, 5600);
-		  
-		  setTimeout(function() {
-			btn.addClass('btn-complete')
-		  }, 5600);
-		  setTimeout(function() {
-			  x.setAttribute('style', 'display: block');                
-		  }, 5600);
-		  if (document.getElementById('burntype').textContent === '') {
-			document.getElementById('burntype').textContent = 'Click here for treatments';
-		  }
-		  
-		});
-	  });
-
-
 
 }());
