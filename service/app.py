@@ -46,7 +46,7 @@ def transform():
     output = make_response(si.getvalue())
     output.headers["Content-Disposition"] = "attachment; filename=image.csv"
     output.headers["Content-type"] = "text/csv"
-    return output
+    return classify(output)
 
 
 def classify(csv) :
