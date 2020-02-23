@@ -43,7 +43,7 @@ def transform():
     output.headers["Content-Disposition"] = "attachment; filename=image.csv"
     output.headers["Content-type"] = "text/csv"
 
-    return classify(output)
+    return output
 
 
 @app.route('/images/classify', methods=['POST'])
