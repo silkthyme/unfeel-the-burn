@@ -10,7 +10,11 @@ import pickle
 import pandas as pd
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score
+<<<<<<< HEAD
 
+=======
+from PIL import Image
+>>>>>>> csvdownloading
 
 static_path = os.path.join('client')
 
@@ -46,14 +50,24 @@ def transform():
     output = make_response(si.getvalue())
     output.headers["Content-Disposition"] = "attachment; filename=image.csv"
     output.headers["Content-type"] = "text/csv"
+
     return classify(output)
 
+@app.route('/images/classify', methods=['POST'])
+def transform2():
+    imgdata = base64.b64decode(request.json['image'])
+    with open('preimage.jpg', 'wb') as f:
+        f.write(imgdata)
+    img = imread('preimage.jpg')
+    smart_img = resize(img, (100, 100, 3), preserve_range=True)
+    smart_img_np_arr = np.array(smart_img).astype(int)
+    flattened_img_np_arr = smart_img_np_arr.flatten()
 
-def classify(csv) :
+    return classify(flattened_img_np_arr.reshape(1, -1))
+
+def classify(table) :
     f = open('model2.py', 'rb')
     classifier = pickle.load(f)
-    table = pd.read_csv(csv)
-    X = table.values
-    prediction = classifier.predict(X)
+    prediction = classifier.predict(table)
     print(prediction[0])
     return prediction[0]
