@@ -35,7 +35,7 @@ def transform():
     imgs = request.files.getlist("images")
     for img in imgs:
         parsed_img = cv2.medianBlur(imread(img), 5)
-        smart_img = resize(parsed_img, (100, 100, 3), preserve_range=True)
+        smart_img = resize(parsed_img, (20, 20, 3), preserve_range=True)
         smart_img_np_arr = np.array(smart_img).astype(int)
         flattened_img_np_arr = smart_img_np_arr.flatten()
         img_arr = flattened_img_np_arr.tolist()
@@ -54,7 +54,7 @@ def transform2():
     with open('preimage.jpg', 'wb') as f:
         f.write(imgdata)
     img = imread('preimage.jpg')
-    smart_img = resize(img, (100, 100, 3), preserve_range=True)
+    smart_img = resize(img, (20, 20, 3), preserve_range=True)
     smart_img_np_arr = np.array(smart_img).astype(int)
     flattened_img_np_arr = smart_img_np_arr.flatten()
 
