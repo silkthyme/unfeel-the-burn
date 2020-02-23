@@ -287,7 +287,6 @@ $(function () {
                     if (response === 'full_thickness') {
                         console.log('entered');
                         document.getElementById('burntype').setAttribute('href', "about.html#third");
-                        location.
                     } else if (response == 'partial_thickness') {
                         document.getElementById('burntype').setAttribute('href', "about.html#second");
                     } else {
