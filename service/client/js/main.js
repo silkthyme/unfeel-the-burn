@@ -289,6 +289,7 @@ $(function () {
                     if (response == 'full_thickness') {
                         console.log('entered');
                         document.getElementById('download').setAttribute('href', "about.html#third");
+
                     } else if (response == 'partial_thickness') {
                         document.getElementById('download').setAttribute('href', "about.html#second");
                     } else {
@@ -321,6 +322,25 @@ $(function () {
 			  x.setAttribute('style', 'display: block');                
 		  }, 5600);
 		});
-	  })
+	  });
+
+
+    $(function initMap() {
+      if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(function (position) {
+             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+         });
+     }
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 4, center: initialLocation});
+      $.ajax({
+        type: 'GET',
+        url: 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=AIzaSyDUvF_j2zJ-9cFY9XxdVDctZYiefZiIMtc&input=Hospital&inputttype=hospital'
+        success: function(response){
+            console.log(response);
+        }
+      });
+    });
+
 
 }());
