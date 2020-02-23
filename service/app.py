@@ -34,8 +34,18 @@ def transform():
 
     imgs = request.files.getlist("images")
     for img in imgs:
-        parsed_img = cv2.medianBlur(imread(img), 5)
-        smart_img = resize(parsed_img, (20, 20, 3), preserve_range=True)
+        img.save('temp.jpg')
+        plimg = cv2.imread('temp.jpg')
+        mask = np.zeros(plimg.shape[:2], np.uint8)
+        bgdModel = np.zeros((1, 65), np.float64)
+        fgdModel = np.zeros((1, 65), np.float64)
+        rect = (0, 0, 20, 20)
+        cv2.grabCut(plimg, mask, rect, bgdModel, fgdModel, 5, cv2.GC_INIT_WITH_RECT)
+        mask2 = np.where((mask == 2) | (mask == 0), 0, 1).astype('uint8')
+        img = plimg * mask2[:, :, np.newaxis]
+
+
+        smart_img = resize(img, (20, 20, 3), preserve_range=True)
         smart_img_np_arr = np.array(smart_img).astype(int)
         flattened_img_np_arr = smart_img_np_arr.flatten()
         img_arr = flattened_img_np_arr.tolist()
