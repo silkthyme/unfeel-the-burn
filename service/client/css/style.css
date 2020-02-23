@@ -103,13 +103,15 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 30px 30px; }
     @media screen and (max-width: 768px) {
       .colorlib-nav .top-menu {
-        padding: 28px 1em; } }
+        padding: 28px .5em; } }
   .colorlib-nav #colorlib-logo {
     font-size: 20px;
     margin: 0;
     padding: 0;
     text-transform: uppercase;
-    font-weight: 700; }
+    font-weight: 500; 
+    width: 500px;
+  }
     .colorlib-nav #colorlib-logo a {
       position: relative;
       color: #fff; }

@@ -1,6 +1,4 @@
 $(function () {
-	var x = document.getElementById("typeofburn");
-	x.setAttribute('style', 'display: none');        
 
 	'use strict';
 
@@ -302,7 +300,9 @@ $(function () {
 	$(function() {
 
 		var btn = $(".btn");
-		
+			var x = document.getElementById("typeofburn");
+	x.setAttribute('style', 'display: none');        
+
 		btn.on("click", function() {
 		  
 		  $(this).addClass('btn-progress');
