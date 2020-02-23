@@ -1,5 +1,7 @@
 $(function () {
-	
+	var x = document.getElementById("typeofburn");
+	x.setAttribute('style', 'display: none');        
+
 	'use strict';
 
 	var isMobile = {
@@ -275,7 +277,6 @@ $(function () {
 	$('#imagesource').change(function(){
 	     const file = document.getElementById('imagesource').files[0];
 	     var reader = new FileReader();
-
          reader.readAsDataURL(file);
          reader.addEventListener('load', function(){
                 $.ajax({
@@ -284,7 +285,7 @@ $(function () {
                 contentType: "application/json",
                 data: JSON.stringify({'image': reader.result.split(',')[1]}),
                 success: function(response){
-                    document.getElementById('download').textContent = response;
+					document.getElementById('download').textContent = response;
                     if (response == 'full_thickness') {
                         console.log('entered');
                         document.getElementById('download').setAttribute('href', "about.html#third");
@@ -293,13 +294,13 @@ $(function () {
                     } else {
                         document.getElementById('download').setAttribute('href', "about.html#first");
                     }
-
                 }
               });
          });
 	});
 
 	$(function() {
+
 		var btn = $(".btn");
 		
 		btn.on("click", function() {
@@ -316,7 +317,9 @@ $(function () {
 		  setTimeout(function() {
 			btn.addClass('btn-complete')
 		  }, 5600);
-		
+		  setTimeout(function() {
+			  x.setAttribute('style', 'display: block');                
+		  }, 5600);
 		});
 	  })
 
